@@ -1,0 +1,11 @@
+node_modules/
+artifacts/
+*.log
+dist/
+.tools/
+.env
+.env.*
+!.env.example
+2.jpg
+项目大纲（数字丝路）.docx
+styles.css

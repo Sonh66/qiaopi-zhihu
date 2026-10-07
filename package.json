@@ -1,0 +1,16 @@
+{
+  "name": "qiaopi-research-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Qiaopi AIGC compliance research workspace",
+  "scripts": {
+    "start": "node server.cjs",
+    "build": "node scripts/build.cjs",
+    "check": "node --check app.js && node --check motion.js && node --check server.cjs && node --check scripts/build.cjs",
+    "test:ui": "node tests/workspace.cjs"
+  },
+  "dependencies": {
+    "gsap": "3.15.0",
+    "lucide": "1.52.0"
+  }
+}

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>侨批智护 | 数字丝路研究工作台</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="design.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#pageStage">跳转到工作区</a>
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="工作台导航">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">侨</span>
+          <div>
+            <strong>侨批智护</strong>
+            <span>数字丝路研究工作台</span>
+          </div>
+        </div>
+
+        <div class="workspace-label"><span class="status-dot"></span>侨批 AIGC 研究空间</div>
+        <nav class="step-nav" id="stepNav" aria-label="研究模块">
+          <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
+          <button class="nav-item active" data-step="dashboard" aria-current="page"><i data-lucide="layout-dashboard"></i>研究总览</button>
+          <div class="nav-group-label">档案与样本</div>
+          <button class="nav-item" data-step="project"><i data-lucide="folder-open"></i>项目建档</button>
+          <button class="nav-item" data-step="sample"><i data-lucide="layers"></i>样本集构建</button>
+          <button class="nav-item" data-step="materials"><i data-lucide="scan-text"></i>素材权属审核</button>
+          <div class="nav-group-label">生成与权利</div>
+          <button class="nav-item" data-step="chain"><i data-lucide="workflow"></i>生成链路分析</button>
+          <button class="nav-item" data-step="rights"><i data-lucide="file-check-2"></i>授权与分配</button>
+          <button class="nav-item" data-step="production"><i data-lucide="scan-line"></i>AIGC 识别记录</button>
+          <div class="nav-group-label">传播与合规</div>
+          <button class="nav-item" data-step="crossborder"><i data-lucide="globe-2"></i>跨境规则对接</button>
+          <button class="nav-item" data-step="decision"><i data-lucide="git-branch"></i>授权决策树</button>
+          <button class="nav-item" data-step="release"><i data-lucide="shield-check"></i>发布前检查</button>
+          <button class="nav-item" data-step="archive"><i data-lucide="archive"></i>合规档案包</button>
+        </nav>
+
+        <div class="side-progress">
+          <div><span>项目记录进度</span><strong id="sidebarProgress">0 / 8</strong></div>
+          <div class="progress-track"><span id="sidebarProgressFill"></span></div>
+          <button type="button" data-jump="archive">查看项目档案<i data-lucide="arrow-up-right"></i></button>
+        </div>
+        <div class="side-profile"><span class="avatar">研</span><div><strong>研究团队</strong><small>本地研究工作区</small></div><i data-lucide="chevrons-up-down"></i></div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="breadcrumb"><button class="icon-btn mobile-menu" id="menuToggle" type="button" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false" title="打开导航"><i data-lucide="panel-left"></i></button><span>数字丝路</span><i data-lucide="chevron-right"></i><strong id="breadcrumbTitle">研究总览</strong></div>
+          <div class="topbar-tools"><time id="workspaceDate"></time><label class="motion-setting" title="开启或关闭动态效果"><i data-lucide="waves"></i><input id="motionEnabled" type="checkbox" checked aria-label="动态效果" /><span></span></label><button class="icon-btn" type="button" data-jump="archive" title="项目档案" aria-label="项目档案"><i data-lucide="archive"></i></button></div>
+        </header>
+        <div class="workspace-content">
+        <div class="page-stage" id="pageStage" tabindex="-1">
+          <header class="page-heading">
+            <div><div class="page-location" id="pageLocation">研究工作台 / 总览</div><h1 id="pageTitle">侨批智护</h1><p id="pageDescription">侨批 AIGC 合规研究工作台</p></div>
+            <div class="heading-actions"><button class="ghost-btn" type="button" data-jump="production"><i data-lucide="upload"></i>上传图片</button><button class="primary-btn" type="button" data-jump="sample"><i data-lucide="plus"></i>构建样本</button></div>
+          </header>
+        <section class="section step-section active" id="dashboard">
+          <div class="project-context"><div class="project-context-icon"><i data-lucide="folder-open"></i></div><div><small>当前研究项目</small><strong id="currentProjectName">侨批数字叙事短片试制</strong></div><span class="project-context-status"><span class="status-dot"></span>研究进行中</span><button type="button" class="icon-btn" data-jump="project" title="编辑项目" aria-label="编辑项目"><i data-lucide="arrow-up-right"></i></button></div>
+          <section class="status-grid" aria-label="流程状态">
+            <article><div><span>素材风险</span><i data-lucide="shield-alert"></i></div><strong id="riskLabel">待评估</strong><small id="riskReason">待填写素材信息</small></article>
+            <article><div><span>授权匹配</span><i data-lucide="file-check-2"></i></div><strong id="rightsLabel">未匹配</strong><small id="rightsReason">待选择使用场景</small></article>
+            <article><div><span>跨境传播</span><i data-lucide="globe-2"></i></div><strong id="borderLabel">未分析</strong><small id="borderReason">待选择目标地区</small></article>
+            <article><div><span>发布检查</span><i data-lucide="circle-check"></i></div><strong id="releaseLabel">未检查</strong><small id="releaseReason">待完成检查清单</small></article>
+          </section>
+          <div class="section-head">
+            <div><h2>研究路径</h2><p>从档案入库到合规传播</p></div>
+            <button class="icon-btn" id="pulseMap" type="button" title="刷新研究路径" aria-label="刷新研究路径"><i data-lucide="rotate-cw"></i></button>
+          </div>
+          <div class="timeline" id="researchTimeline">
+            <div class="route-line" aria-hidden="true"><span id="routeTracer"></span></div>
+            <article class="phase-card is-live"><div class="phase-top"><span class="phase-number">01</span><i data-lucide="layers"></i></div><span class="phase-label">档案与样本</span><strong>采集文化记忆</strong><p>档案筛选、叙事提取与 AIGC 样本构建。</p><button type="button" data-jump="sample">构建样本<i data-lucide="arrow-right"></i></button></article>
+            <article class="phase-card"><div class="phase-top"><span class="phase-number">02</span><i data-lucide="workflow"></i></div><span class="phase-label">链路与权属</span><strong>厘清创作边界</strong><p>拆解生成链路，核验素材来源与使用权限。</p><button type="button" data-jump="chain">分析链路<i data-lucide="arrow-right"></i></button></article>
+            <article class="phase-card"><div class="phase-top"><span class="phase-number">03</span><i data-lucide="globe-2"></i></div><span class="phase-label">跨境与传播</span><strong>对接目标规则</strong><p>比对法域、平台要求与内容披露义务。</p><button type="button" data-jump="crossborder">查看规则<i data-lucide="arrow-right"></i></button></article>
+            <article class="phase-card"><div class="phase-top"><span class="phase-number">04</span><i data-lucide="shield-check"></i></div><span class="phase-label">合规与归档</span><strong>沉淀研究成果</strong><p>整合授权决策、发布核验与合规档案。</p><button type="button" data-jump="decision">进入决策<i data-lucide="arrow-right"></i></button></article>
+          </div>
+          <div class="dashboard-bottom">
+            <div class="research-records"><div class="section-head"><h2>项目记录</h2><button class="text-btn" type="button" data-jump="archive">全部档案<i data-lucide="arrow-up-right"></i></button></div><div class="record-totals"><div><strong id="sampleCount">0</strong><span>研究样本</span></div><div><strong id="materialCount">0</strong><span>审核素材</span></div><div><strong id="imageCount">0</strong><span>识别图片</span></div></div><div class="task-list"><button type="button" data-jump="materials"><i data-lucide="scan-text"></i><span><strong>素材权属审核</strong><small id="materialTask">录入档案来源与权利信息</small></span><i data-lucide="arrow-right"></i></button><button type="button" data-jump="production"><i data-lucide="scan-line"></i><span><strong>AIGC 识别记录</strong><small id="imageTask">上传图片，记录生成痕迹</small></span><i data-lucide="arrow-right"></i></button><button type="button" data-jump="release"><i data-lucide="shield-check"></i><span><strong>发布前核验</strong><small id="releaseTask">核对脱敏、授权与内容标识</small></span><i data-lucide="arrow-right"></i></button></div></div>
+            <figure class="archive-preview"><div class="preview-heading"><span><i data-lucide="book-open"></i>文化档案</span><span class="tag">侨批</span></div><div class="archive-image-wrap"><img id="archiveImage" src="assets/qiaopi.jpg" alt="潮州博物馆藏侨批，展示手写家书与汇款信封" width="1200" height="674" /><div class="archive-scan" aria-hidden="true"></div></div><figcaption><strong>一封家书，连接山海</strong><p>潮州博物馆藏侨批影像</p><a href="https://commons.wikimedia.org/wiki/File:%E4%BE%A8%E6%89%B91.jpg" target="_blank" rel="noopener noreferrer">摄影：三猎 / CC BY-SA 4.0<i data-lucide="arrow-up-right"></i></a></figcaption></figure>
+          </div>
+        </section>
+
+        <section class="section step-section" id="project">
+          <div class="section-head">
+            <div><span class="eyebrow">01 项目建档</span><h2>建立 AIGC 项目并生成独立编号</h2></div>
+            <div class="project-badge"><span>项目编号</span><strong id="projectId">QP-20260823-001</strong></div>
+          </div>
+          <div class="form-grid">
+            <label>项目名称<input id="projectName" type="text" value="侨批数字叙事短片试制" /></label>
+            <label>使用单位<input id="unitName" type="text" value="某侨批馆" /></label>
+            <label>负责人<input id="ownerName" type="text" value="项目管理员" /></label>
+            <label>作品类型<select id="workType"><option>短视频</option><option>海报</option><option>数字叙事作品</option><option>展陈互动页面</option></select></label>
+            <label>拟发布平台<input id="platform" type="text" value="YouTube / TikTok / 馆方网站" /></label>
+            <label>拟传播国家或地区<input id="region" type="text" value="新加坡、马来西亚、柬埔寨" /></label>
+          </div>
+          <div class="inline-controls">
+            <label class="switch"><input id="commercialUse" type="checkbox" /><span></span>是否商业使用</label>
+            <label class="switch"><input id="overseasUse" type="checkbox" checked /><span></span>是否面向海外传播</label>
+          </div>
+          <button class="ghost-btn floating-action" id="refreshId" type="button">重新编号</button>
+        </section>
+
+        <section class="section step-section" id="sample">
+          <div class="section-head">
+            <div><span class="eyebrow">02 样本集构建</span><h2>从静态档案到 AIGC 叙事样本</h2></div>
+            <button class="primary-btn" id="buildSample" type="button">生成样本方案</button>
+          </div>
+          <div class="form-grid">
+            <label>侨批文本摘要<input id="sampleText" type="text" value="海外侨胞寄回家书，表达经济支持、家庭牵挂与家国情感" /></label>
+            <label>书写/图像特征<input id="visualFeature" type="text" value="手写信札、邮戳、票据、骑楼街景、海上航线" /></label>
+            <label>叙事元素<select id="storyElement"><option>家国情感</option><option>跨洋汇款</option><option>家庭团聚</option><option>侨乡记忆</option></select></label>
+            <label>生成形式<select id="sampleFormat"><option>短视频分镜</option><option>海报视觉</option><option>数字叙事页面</option><option>展陈互动脚本</option></select></label>
+            <label>目标受众<select id="audience"><option>东南亚青年</option><option>侨批馆参观者</option><option>海外华文社群</option><option>中小学研学群体</option></select></label>
+            <label>风格控制<select id="styleControl"><option>档案真实优先</option><option>温暖叙事</option><option>纪实影像</option><option>轻量交互</option></select></label>
+          </div>
+          <div class="sample-output" id="sampleOutput"><div class="empty-state">点击生成后形成样本编号、生成提示词、风险标记和研究观察项。</div></div>
+        </section>
+
+        <section class="section step-section" id="materials">
+          <div class="section-head">
+            <div><span class="eyebrow">03 素材权属审核</span><h2>建立侨批素材档案卡</h2></div>
+            <button class="primary-btn" id="addMaterial" type="button">新增素材</button>
+          </div>
+          <div class="form-grid">
+            <label>档案名称<input id="materialTitle" type="text" value="柬埔寨潮汕侨批样本 A" /></label>
+            <label>档案形成时间<input id="materialYear" type="number" min="1850" max="2026" value="1948" /></label>
+            <label>档案取得方式<select id="acquireType"><option>捐赠</option><option>寄存</option><option>征集购买</option><option>馆藏整理</option><option>来源待核验</option></select></label>
+            <label>馆方拟提供形式<select id="sourceFormat"><option>扫描件</option><option>原件照片</option><option>原文内容</option><option>脱敏文本</option></select></label>
+          </div>
+          <div class="check-grid">
+            <label><input id="authorKnown" type="checkbox" checked /> 作者身份明确</label>
+            <label><input id="authorDead" type="checkbox" checked /> 作者已去世</label>
+            <label><input id="hasAgreement" type="checkbox" /> 已有捐赠/寄存协议</label>
+            <label><input id="isPublic" type="checkbox" checked /> 已依法公开</label>
+            <label><input id="hasPersonalInfo" type="checkbox" checked /> 含个人信息</label>
+            <label><input id="hasSensitiveHistory" type="checkbox" /> 存在历史失真风险</label>
+          </div>
+          <div class="results-layout">
+            <div class="result-box"><span class="eyebrow">风险分级</span><strong id="materialRisk">中风险</strong><p id="materialAdvice">建议补充授权材料，并在发布前进行人工复核。</p></div>
+            <div class="table-wrap"><table><thead><tr><th>素材</th><th>来源</th><th>状态</th><th>处理建议</th></tr></thead><tbody id="materialRows"></tbody></table></div>
+          </div>
+        </section>
+
+        <section class="section step-section" id="chain">
+          <div class="section-head">
+            <div><span class="eyebrow">04 生成链路分析</span><h2>拆解数据输入、模型处理和结果输出</h2></div>
+            <button class="primary-btn" id="analyzeChain" type="button">生成链路图</button>
+          </div>
+          <div class="chain-builder">
+            <label>数据输入<select id="chainInput"><option>原件照片/扫描件</option><option>转写文本</option><option>脱敏摘要</option><option>多素材混合</option></select></label>
+            <label>模型处理<select id="chainModel"><option>文生图</option><option>图生图</option><option>文生视频</option><option>多模态叙事生成</option></select></label>
+            <label>输出结果<select id="chainOutput"><option>海报</option><option>短视频</option><option>数字叙事页面</option><option>社媒图文</option></select></label>
+          </div>
+          <div class="flow-lane" id="flowLane">
+            <div class="flow-node"><span>输入</span><strong>档案素材</strong></div><div class="flow-line"></div>
+            <div class="flow-node"><span>处理</span><strong>模型生成</strong></div><div class="flow-line"></div>
+            <div class="flow-node"><span>输出</span><strong>传播作品</strong></div>
+          </div>
+          <div class="risk-matrix" id="chainMatrix"></div>
+        </section>
+
+        <section class="section step-section" id="rights">
+          <div class="section-head">
+            <div><span class="eyebrow">05 授权与利益分配</span><h2>按使用场景列出所需权限</h2></div>
+            <button class="ghost-btn" id="generateAgreement" type="button">生成协议文本</button>
+          </div>
+          <div class="scenario-grid">
+            <label><input type="checkbox" class="scenario" value="复制" checked /> 使用扫描件或照片制作素材</label>
+            <label><input type="checkbox" class="scenario" value="信息网络传播权" checked /> 在网络平台传播</label>
+            <label><input type="checkbox" class="scenario" value="改编权" checked /> 对文字、图像或叙事进行改编</label>
+            <label><input type="checkbox" class="scenario" value="翻译权" /> 制作外语版本</label>
+            <label><input type="checkbox" class="scenario" value="汇编权" /> 与其他档案组合成合集</label>
+            <label><input type="checkbox" class="scenario" value="商业使用许可" /> 用于商业合作或收费展项</label>
+          </div>
+          <div class="two-column">
+            <div><h3>所需权限</h3><ul class="pill-list" id="neededRights"></ul></div>
+            <div><h3>缺失提示</h3><ul class="warning-list" id="missingRights"></ul></div>
+          </div>
+          <div class="benefit-panel">
+            <label>参与主体<input id="stakeholders" type="text" value="侨批馆、档案提供方、AIGC创作者、技术平台" /></label>
+            <label>分配原则<select id="benefitRule"><option>非商业展示，仅署名与备案</option><option>商业转化需收益分成</option><option>公益传播优先，二次开发另行授权</option></select></label>
+            <button class="primary-btn" id="buildBenefit" type="button">生成分配建议</button>
+          </div>
+          <div class="release-output review" id="benefitOutput"><strong>利益分配待生成</strong><p>根据主体和使用方式输出署名、备案、收益和退出机制。</p></div>
+          <label class="textarea-label">授权申请/协议文本草稿<textarea id="agreementText" rows="8"></textarea></label>
+        </section>
+
+        <section class="section step-section" id="crossborder">
+          <div class="section-head">
+            <div><span class="eyebrow">06 跨境规则对接</span><h2>比对目标法域、平台责任和信息披露义务</h2></div>
+            <button class="primary-btn" id="runBorder" type="button">生成涉外风险框架</button>
+          </div>
+          <div class="form-grid">
+            <label>目标地区<select id="targetJurisdiction"><option>东南亚综合</option><option>新加坡</option><option>马来西亚</option><option>柬埔寨</option><option>欧盟平台受众</option></select></label>
+            <label>主要平台<select id="targetPlatform"><option>YouTube / TikTok</option><option>馆方官网</option><option>海外社交媒体</option><option>线下展陈同步传播</option></select></label>
+            <label>传播语言<select id="publishLanguage"><option>中文</option><option>中文+英文</option><option>中文+东南亚本地语言</option></select></label>
+          </div>
+          <div class="compare-grid" id="borderOutput"></div>
+        </section>
+
+        <section class="section step-section" id="production">
+          <div class="section-head">
+            <div><span class="eyebrow">07 AIGC识别记录</span><h2>记录模型、提示词、生成结果和图片识别</h2></div>
+            <div class="action-group"><span id="productionNotice">尚未保存</span><button class="primary-btn" id="saveProduction" type="button">保存记录</button></div>
+          </div>
+          <div class="form-grid">
+            <label>使用模型和版本<input id="modelName" type="text" value="通用文生图/视频模型 v1" /></label>
+            <label>生成时间<input id="generateTime" type="datetime-local" /></label>
+            <label>参与创作人员<input id="creators" type="text" value="策划、馆员、视觉设计、法务复核" /></label>
+            <label>是否使用其他受保护素材<select id="extraProtected"><option>否</option><option>是，已取得授权</option><option>是，待核验</option></select></label>
+          </div>
+          <label class="textarea-label">提示词与素材说明<textarea id="promptText" rows="5">以侨批原文情感为线索，生成适合东南亚青年理解的短视频分镜，保留档案来源说明，不虚构具体历史事实。</textarea></label>
+          <label class="textarea-label">初始生成结果与人工修改情况<textarea id="revisionText" rows="5">初稿已删除可识别家庭地址；人物关系改为概括表达；片尾增加“本内容使用AIGC辅助生成”声明。</textarea></label>
+          <div class="image-intake">
+            <div class="section-head compact">
+              <div><span class="eyebrow">图片上传与AIGC识别</span><h3>识别生成器、提示词、参数和发布风险</h3></div>
+              <button class="ghost-btn" id="clearImages" type="button">清空图片</button>
+            </div>
+            <label class="upload-zone" id="uploadZone" for="imageUpload">
+              <input id="imageUpload" type="file" accept="image/*" multiple />
+              <span>选择图片或拖入此处</span><small>支持 JPG、PNG、WebP；在浏览器本地读取，不上传服务器。</small>
+            </label>
+            <div class="media-summary" id="mediaSummary"><strong>尚未上传图片</strong><p>上传后自动扫描 EXIF、XMP、PNG 文本块、生成参数和基础视觉特征。</p></div>
+            <div class="media-grid" id="mediaGrid"></div>
+          </div>
+        </section>
+
+        <section class="section step-section" id="decision">
+          <div class="section-head">
+            <div><span class="eyebrow">08 交互式授权决策树</span><h2>核对档案使用条件</h2></div>
+            <button class="primary-btn" id="runDecision" type="button">生成决策结论</button>
+          </div>
+          <div class="decision-tree">
+            <label><input id="decisionPublic" type="checkbox" checked /> 档案已公开</label>
+            <label><input id="decisionOwner" type="checkbox" /> 权利主体不明确</label>
+            <label><input id="decisionTransform" type="checkbox" checked /> 存在改编或二次创作</label>
+            <label><input id="decisionCommercial" type="checkbox" /> 存在商业转化</label>
+            <label><input id="decisionOverseas" type="checkbox" checked /> 面向境外平台传播</label>
+            <label><input id="decisionPersonal" type="checkbox" checked /> 涉及可识别个人信息</label>
+          </div>
+          <div class="decision-output" id="decisionOutput"><strong>等待决策</strong><p>决策树将输出放行、补充授权、人工复核或禁止发布建议。</p></div>
+          <div class="prompt-console">
+            <div><span class="eyebrow">法律提示词助手</span><h3>生成给合规智能体或大模型的审查提示词</h3></div>
+            <button class="ghost-btn" id="buildLegalPrompt" type="button">生成提示词</button>
+            <textarea id="legalPrompt" rows="7"></textarea>
+          </div>
+        </section>
+
+        <section class="section step-section" id="release">
+          <div class="section-head">
+            <div><span class="eyebrow">09 发布前检查</span><h2>核验授权、脱敏、标识和海外平台条款</h2></div>
+            <button class="primary-btn" id="runReleaseCheck" type="button">运行检查</button>
+          </div>
+          <div class="checklist" id="releaseChecks">
+            <label><input type="checkbox" checked /> 与授权用途一致</label>
+            <label><input type="checkbox" checked /> 未超出授权地域或期限</label>
+            <label><input type="checkbox" /> 已完成个人信息脱敏</label>
+            <label><input type="checkbox" checked /> 无明显历史失真</label>
+            <label><input type="checkbox" checked /> 已标注侨批来源</label>
+            <label><input type="checkbox" /> 已声明使用AIGC</label>
+            <label><input type="checkbox" /> 已保留生成合成内容标识</label>
+            <label><input type="checkbox" checked /> 海外平台条款与馆方授权不冲突</label>
+          </div>
+          <div class="release-output" id="releaseOutput"><strong>等待检查</strong><p>完成必要项后，可生成合规档案包。</p></div>
+        </section>
+
+        <section class="section step-section" id="archive">
+          <div class="section-head">
+            <div><span class="eyebrow">10 合规档案包</span><h2>导出审核表、授权文件、链路记录和风险提示</h2></div>
+            <button class="primary-btn" id="exportArchive" type="button">导出档案包</button>
+          </div>
+          <div class="archive-layout">
+            <article class="archive-card"><span>样本集</span><strong id="archiveSample">待生成</strong></article>
+            <article class="archive-card"><span>审核表</span><strong id="archiveReview">待生成</strong></article>
+            <article class="archive-card"><span>链路分析</span><strong id="archiveChain">待分析</strong></article>
+            <article class="archive-card"><span>授权文件</span><strong id="archiveRights">待匹配</strong></article>
+            <article class="archive-card"><span>跨境规则</span><strong id="archiveBorder">待分析</strong></article>
+            <article class="archive-card"><span>制作记录</span><strong id="archiveProduction">待保存</strong></article>
+            <article class="archive-card"><span>图片识别</span><strong id="archiveMedia">待上传</strong></article>
+            <article class="archive-card"><span>风险提示</span><strong id="archiveRisk">待评估</strong></article>
+          </div>
+        </section>
+        </div>
+        <footer class="workspace-footer"><span>侨批智护 / 数字丝路</span><span>档案 · 创作 · 传播</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"><i data-lucide="circle-check"></i><span id="toastMessage"></span></div>
+    <script src="vendor/gsap.min.js"></script>
+    <script src="vendor/lucide.min.js"></script>
+    <script src="motion.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
