@@ -2,7 +2,7 @@
 
 仓库： https://github.com/Sonh66/qiaopi-zhihu （公开）。
 
-默认网站地址： https://sonh66.github.io/qiaopi-zhihu/ 。
+当前网站地址： https://sonh.me/qiaopi-zhihu/ 。项目继承账号已有主域名 `sonh.me`，https://sonh66.github.io/qiaopi-zhihu/ 会跳转到这个地址。GitHub Pages 已启用 HTTPS。
 
 目标自定义域名：`qiaopi-zhihu.sonh.me`。
 
@@ -24,7 +24,7 @@ GitHub Pages 的发布来源设为 GitHub Actions。每次向 `main` 推送代�
 
 解析生效后，在仓库 Settings → Pages → Custom domain 填写 `qiaopi-zhihu.sonh.me` 并保存。等待 DNS 检查与证书签发成功，再启用 Enforce HTTPS。
 
-当前先使用默认 GitHub Pages 地址，避免自定义域名尚未完成 DNS 设置时发生不可访问的重定向。域名绑定后默认地址会重定向到自定义域名。
+当前先使用已生效的 `sonh.me/qiaopi-zhihu/` 地址；目标子域名尚未发现 DNS 记录。子域名绑定后，现有 GitHub Pages 项目地址会重定向到该子域名。
 
 本项目通过 GitHub Actions 发布；自定义域名以 Settings → Pages 中的配置为准，不需要为该工作流生成额外的 `CNAME` 文件。
 

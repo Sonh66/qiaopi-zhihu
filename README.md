@@ -23,7 +23,7 @@ GSAP 3.15.0 驱动方向转场、导航指示器、研究路线、生成结果�
 npm run build
 ```
 
-网站部署到 GitHub Pages，默认访问地址为 https://sonh66.github.io/qiaopi-zhihu/ 。推送到 `main` 后，GitHub Actions 自动检查代码、构建 `dist/` 并部署。目标自定义域名为 `qiaopi-zhihu.sonh.me`，其 CNAME 解析目标应为 `sonh66.github.io`。详细步骤见 [DEPLOYMENT.md](DEPLOYMENT.md)。
+网站部署到 GitHub Pages，当前访问地址为 https://sonh.me/qiaopi-zhihu/ 。该地址继承了账号已有的主域名；https://sonh66.github.io/qiaopi-zhihu/ 会跳转到该地址。推送到 `main` 后，GitHub Actions 自动检查代码、构建 `dist/` 并部署。目标自定义域名为 `qiaopi-zhihu.sonh.me`，其 CNAME 解析目标应为 `sonh66.github.io`。详细步骤见 [DEPLOYMENT.md](DEPLOYMENT.md)。
 
 ## 检查
 
