@@ -23,7 +23,7 @@ GSAP 3.15.0 驱动方向转场、导航指示器、研究路线、生成结果�
 npm run build
 ```
 
-将 `dist/` 部署到静态托管平台即可。目标域名为 `qiaopi-zhihu.sonh.me`，Cloudflare Pages 的构建命令为 `npm run build`，输出目录为 `dist`。详细步骤见 [DEPLOYMENT.md](DEPLOYMENT.md)。GitHub Actions 会检查代码并生成可下载的网站部署包。
+网站部署到 GitHub Pages，默认访问地址为 https://sonh66.github.io/qiaopi-zhihu/ 。推送到 `main` 后，GitHub Actions 自动检查代码、构建 `dist/` 并部署。目标自定义域名为 `qiaopi-zhihu.sonh.me`，其 CNAME 解析目标应为 `sonh66.github.io`。详细步骤见 [DEPLOYMENT.md](DEPLOYMENT.md)。
 
 ## 检查
 
